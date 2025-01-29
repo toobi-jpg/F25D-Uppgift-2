@@ -10,10 +10,11 @@ html {
 }
 
 body {
-  background-image: linear-gradient(#232526, #414345);
-  height: 100%;
+  background-image: linear-gradient(#373634, #272624);
+  background-size: cover;
+  min-height: 100vh;
   width: 100%;
-  font-family: "Roboto Flex", serif;
+  font-family: "Montserrat", serif;
   min-height: 0;
 }
 
@@ -21,10 +22,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom right, #2e3031, #232526);
+  background-image: linear-gradient(to top right, #373634, #272624);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 4rem;
+  height: 3.5rem;
 }
 
 .menu {
@@ -36,14 +37,16 @@ header {
 }
 
 .menu a {
-  font-size: 18px;
+  font-size: 16px;
+  text-transform: uppercase;
   font-weight: 500;
-  color: white;
+  color: #cac6c0;
   text-decoration: none;
+  transition: color 0.4s ease;
 }
 
 .menu a:hover {
-  color: gold;
+  color: white;
 }
 
 @media screen and (max-width: 375px) {
@@ -94,7 +97,7 @@ p {
 section h1 {
   width: 100%;
   font-weight: 400;
-  color: white;
+  color: #cac6c0;
   font-size: 42px;
   margin-bottom: -40px;
 }
@@ -103,7 +106,6 @@ section {
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   max-width: 1245px;
   gap: 40px;
   margin: 0 auto;
@@ -111,10 +113,76 @@ section {
 }
 
 section div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   background-color: aqua;
   width: 280px;
   height: 360px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.readmore {
+  display: flex;
+  color: #cac6c0;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+  margin-top: auto;
+  padding: 5px;
+  background-color: black;
+  width: 50%;
+  height: 1.8rem;
+  margin-bottom: 5%;
+  transition: color 0.4s ease;
+}
+
+.readmore:hover {
+  cursor: pointer;
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top right, #373634, #272624);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 6rem;
+  margin-top: 60px;
+  gap: 40px;
+}
+
+footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+footer a i {
+  margin-right: 5px;
+  color: #cac6c0;
+  transition: color 0.4s ease;
+}
+
+footer a:hover i {
+  color: white;
+}
+
+footer a:has(i:hover) label {
+  color: white;
+}
+
+footer label:hover {
+  cursor: pointer;
+  color: white;
+}
+
+footer label {
+  color: #cac6c0;
+  transition: color 0.4s ease;
 }
 
 @media (max-width: 1239px) {
@@ -136,35 +204,8 @@ section div {
   }
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to top right, #232526, #2e3031);
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 6rem;
-  margin-top: 60px;
-  gap: 40px;
-}
-
-footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-footer a:hover label:hover {
-  cursor: pointer;
-  color: gold;
-}
-
-footer label {
-  color: white;
-}
-
-footer img {
-  height: 20px;
-  margin-right: 5px;
+@media (max-width: 599px) {
+  .readmore {
+    font-size: 10px;
+  }
 }
