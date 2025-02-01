@@ -10,18 +10,20 @@
     <title>Kevin WL CW</title>
   </head>
   <body>
+    <img class="webtemplate" src="images/webtemplate.png" alt="template for desktop">
       <header>
         <nav class="menu">
           <a href="index.html" target="">Home</a>
           <a href="aboutme.html" target="">About me</a>
           <a href="contact.html" target="">Contact</a>
           <a href="portfolio.html" target="">Portfolio</a>
+          <img id="templatebutton" onClick="displaytemplate()" src="images/button.png" alt="red button icon">
         </nav>
       </header>
     </div>
     <main>
       <div class="ppbox">
-        <img src="" alt="" />
+        <img src="images/139364871_152604999788009_2984233856024734168_n2.png" alt="young kevinwl" />
       </div>
       <div class="cvtextbox">
         <h3>Profiltext Titel</h1>
@@ -57,5 +59,16 @@
         <label>Contact</label>
       </a>
     </footer>
+    <script>
+      function displaytemplate() {
+        const template = document.querySelector(".webtemplate");
+        if (template.style.display === "block") {
+          template.style.display = "none";
+        } else {
+          template.style.display = "block";
+        }
+
+      }
+    </script>
   </body>
 </html>

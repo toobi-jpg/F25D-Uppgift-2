@@ -49,6 +49,22 @@ header {
   color: white;
 }
 
+nav img {
+  cursor: pointer;
+  right: 30px;
+  position: absolute;
+  height: 30px;
+}
+
+.webtemplate {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+}
+
 @media screen and (max-width: 410px) {
   .menu a {
     font-size: 12px;
@@ -82,6 +98,12 @@ main div {
 
 .ppbox {
   background-color: rgb(255, 0, 0);
+}
+
+.ppbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .cvtextbox {
@@ -214,6 +236,10 @@ footer label {
     font-size: 10px;
     width: 60%;
   }
+
+  #templatebutton {
+    display: none;
+  }
 }
 
 .contact-page main {
@@ -221,7 +247,9 @@ footer label {
 }
 
 .paperplane {
-  height: 300px;
+  margin-top: 50px;
+  margin-right: 15px;
+  height: 250px;
   opacity: 20%;
 }
 
