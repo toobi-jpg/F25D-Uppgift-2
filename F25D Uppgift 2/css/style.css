@@ -4,14 +4,35 @@
   padding: 0;
 }
 
+:root {
+  --base-color: linear-gradient(71deg, #0a0a0a, #111111, #0a0a0a);
+  --text-color: #cac6c0;
+  --text-accent: #ffffff;
+  --card-gradient: linear-gradient(71deg, #080509, #1a171c, #080509);
+  --card-elements: #272624;
+  --input-color: rgba(128, 128, 128, 0.103);
+  --text-placeholder: rgba(255, 255, 255, 0.4);
+  --base-header: linear-gradient(to top right, #373634, #272624);
+}
+
+.lightmode {
+  --base-color: linear-gradient(71deg, #8b9db2, #8b9db2, #8b9db2);
+  --text-color: #ffffff;
+  --text-accent: #ffffff;
+  --card-gradient: linear-gradient(71deg, #437fc7, #79abe9);
+  --card-elements: #181947;
+  --input-color: #79abe9;
+  --text-placeholder: #ffffff;
+  --base-header: linear-gradient(to bottom, #181947, #212143);
+}
+
 html {
   display: flex;
   justify-content: center;
 }
 
 body {
-  /* background-image: linear-gradient(#373634, #272624); */
-  background-image: linear-gradient(to bottom right, #272624, #272624, #1c1b19);
+  background: var(--base-color);
   min-height: 100vh;
   width: 100%;
   font-family: "Montserrat", serif;
@@ -22,7 +43,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to top right, #373634, #272624);
+  background-image: var(--base-header);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 3.5rem;
@@ -40,13 +61,13 @@ header {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 600;
-  color: #cac6c0;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.4s ease;
 }
 
 .menu a:hover {
-  color: white;
+  color: var(--text-accent);
 }
 
 nav img {
@@ -113,8 +134,8 @@ main div {
   border-radius: 15px;
   padding: 15px;
   line-height: 1.4rem;
-  color: white;
-  background-image: linear-gradient(to bottom right, #272624, #272624, #2c2519);
+  color: var(--text-color);
+  background: var(--card-gradient);
 }
 
 .languageicons {
@@ -131,7 +152,7 @@ main div {
 }
 
 .linebreaker {
-  background-color: #cac6c0;
+  background-color: var(--text-color);
   opacity: 50%;
   box-shadow: none;
   margin-left: 1px;
@@ -142,7 +163,7 @@ main div {
 
 .cvtextbox p {
   width: 90%;
-  font-weight: 500;
+  font-weight: 600;
   word-break: break-word;
 }
 
@@ -152,24 +173,21 @@ main div {
 }
 
 .cvtextbox a {
-  color: #cac6c0;
+  font-weight: bold;
+  color: var(--text-color);
   text-decoration: none;
   transition: 0.3s ease;
 }
 
 .cvtextbox a:hover {
-  color: white;
-}
-
-p {
+  color: var(--text-accent);
 }
 
 .projects {
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.273);
   margin-top: -75px;
   margin-left: -22px;
   font-weight: 400;
-  color: #cac6c0;
+  color: var(--text-color);
   font-size: 42px;
 }
 
@@ -191,11 +209,11 @@ section div {
   padding: 20px;
   width: 265px;
   height: 360px;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.613);
+  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.613);
   border-radius: 15px;
-  color: #cac6c0;
-  z-index: 1;
+  color: var(--text-color);
   transition: transform 0.2s ease;
+  background: var(--card-gradient);
 }
 
 section h2 {
@@ -208,28 +226,17 @@ section h2 {
   width: 100%;
   font-weight: 500;
   text-transform: uppercase;
-  background-color: #272624;
+  background-color: var(--card-elements);
   height: 2.4rem;
 }
 
-.project1 {
+.card1 {
+  position: relative;
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(to bottom right, #fc5c7caa, #6a82fbb4),
-    url("../images/loginpage.png");
+  background-image: var(--card-gradient);
+  /* url("../images/loginpage.png"); */
   background-blend-mode: multiply;
-}
-
-.project2 {
-  background-image: linear-gradient(to bottom right, #fc4b1a96, #f7b633a1);
-}
-
-.project3 {
-  background-image: linear-gradient(to bottom right, #0000469e, #1cb5e09d);
-}
-
-.project4 {
-  background-image: linear-gradient(to bottom right, #20012293, #6f00009b);
 }
 
 section div:hover {
@@ -238,13 +245,13 @@ section div:hover {
 
 .readmore {
   display: flex;
-  color: #cac6c0;
+  color: var(--text-color);
   text-decoration: none;
   align-items: center;
   text-align: center;
   margin-top: auto;
   padding: 5px;
-  background-color: #272624;
+  background-color: var(--card-elements);
   width: 50%;
   height: 1.8rem;
   margin-bottom: 5%;
@@ -255,14 +262,14 @@ section div:hover {
 
 .readmore:hover {
   cursor: pointer;
-  color: white;
+  color: var(--text-accent);
 }
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to top right, #373634, #272624);
+  background-image: var(--base-header);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 6rem;
@@ -338,7 +345,8 @@ footer label {
 
 .contact-page main {
   flex-wrap: nowrap;
-  background-image: linear-gradient(to top, #191817, #191817, #2b261d);
+  /* background-image: linear-gradient(to top, #191817, #191817, #2b261d); */
+  background: var(--base-color);
 }
 
 .paperplane {
@@ -377,14 +385,14 @@ footer label {
 }
 
 .contact-container h1 {
-  color: #cac6c0;
+  color: var(--text-color);
   font-weight: 400;
   margin-top: 40px;
   text-transform: uppercase;
 }
 
 .contact-container p {
-  color: #cac6c053;
+  color: var(--text-color);
   line-height: 5px;
 }
 
@@ -402,8 +410,8 @@ input {
   height: 2.5rem;
   border: none;
   padding: 10px;
-  background-color: rgba(128, 128, 128, 0.103);
-  color: #cac6c0;
+  background-color: var(--input-color);
+  color: var(--text-color);
   font-weight: 500;
   border-radius: 15px;
   flex: 1;
@@ -417,12 +425,12 @@ input {
   padding: 10px;
   resize: none;
   font-weight: 500;
-  background-color: rgba(128, 128, 128, 0.103);
+  background-color: var(--input-color);
   border-radius: 15px;
 }
 
 textarea {
-  color: #cac6c0;
+  color: var(--text-color);
   font-weight: 500;
   font-family: "Montserrat", serif;
 }
@@ -431,19 +439,19 @@ textarea::placeholder {
   font-family: "Montserrat", serif;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-placeholder);
 }
 
 input::placeholder {
   font-family: "Montserrat", serif;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-placeholder);
   padding-left: 25px;
 }
 
 input:focus::placeholder {
-  color: #cac6c0;
+  color: var(--text-color);
 }
 
 input:focus {
@@ -452,7 +460,7 @@ input:focus {
 }
 
 textarea:focus::placeholder {
-  color: #cac6c0;
+  color: var(--text-color);
 }
 
 textarea:focus {
@@ -469,7 +477,7 @@ textarea:focus {
 }
 
 .sendbutton:hover {
-  background-image: linear-gradient(to bottom right, #3c3b39, #33312f, #23201a);
+  background-image: linear-gradient(to bottom right, #3c3b39, #33312f, #1a171c);
   font-size: 14px;
   color: white;
 }
