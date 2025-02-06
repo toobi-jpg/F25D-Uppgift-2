@@ -13,6 +13,7 @@
   --input-color: rgba(128, 128, 128, 0.103);
   --text-placeholder: rgba(255, 255, 255, 0.4);
   --base-header: linear-gradient(to top right, #373634, #272624);
+  --darker-header-color: #1f1e1d;
 }
 
 .lightmode {
@@ -24,6 +25,7 @@
   --input-color: #79abe9;
   --text-placeholder: #ffffff;
   --base-header: linear-gradient(to bottom, #181947, #212143);
+  --darker-header-color: #0d0e40;
 }
 
 html {
@@ -40,13 +42,50 @@ body {
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: var(--base-header);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
+}
+
+.hamburger {
+  position: absolute;
+  left: 20px;
+  display: none !important;
+}
+
+#theme-switch {
+  right: 20px;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--darker-header-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+#theme-switch svg {
+  fill: var(--text-color);
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 
 .menu {
@@ -77,14 +116,34 @@ nav img {
   height: 30px;
 }
 
-.webtemplate {
+.hamburger-menu.show {
+  display: flex;
+}
+
+.hamburger-menu {
   display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1000px;
-  z-index: 999;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+  background-color: var(--darker-header-color);
+  gap: 40px;
+  border-bottom: 1px solid var(--input-color);
+}
+
+.hamburger-menu a {
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 32px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+@media (min-width: 499px) {
+  .hamburger-menu {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 410px) {
@@ -337,9 +396,15 @@ footer label {
   section h2 {
     font-size: 16px;
   }
+}
 
-  #templatebutton {
+@media (max-width: 499px) {
+  .menu {
     display: none;
+  }
+
+  .hamburger {
+    display: block !important;
   }
 }
 
