@@ -26,6 +26,19 @@ themeSwitch.addEventListener("click", () => {
   updateIcons();
 });
 
+let obsText = document.getElementById("obs-text");
+themeSwitch.addEventListener("mouseover", () => {
+  if (window.innerWidth >= 1000) {
+    obsText.style.display = "block";
+  }
+});
+
+themeSwitch.addEventListener("mouseout", () => {
+  if (window.innerWidth >= 1000) {
+    obsText.style.display = "none";
+  }
+});
+
 function updateIcons() {
   const moonIcon = document.querySelector("#theme-switch svg:first-child");
   const sunIcon = document.querySelector("#theme-switch svg:last-child");
@@ -38,3 +51,12 @@ function updateIcons() {
     sunIcon.style.display = "none";
   }
 }
+
+const navLink = document.querySelectorAll(".nav_link");
+const windowPathnmae = window.location.pathname;
+
+navLink.forEach((navLink) => {
+  if (navLink.href.includes(windowPathnmae)) {
+    navLink.classList.add("active");
+  }
+});
