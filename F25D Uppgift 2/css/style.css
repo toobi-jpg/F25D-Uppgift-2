@@ -370,6 +370,7 @@ section div img {
   z-index: 0;
   transition: transform 0.8s ease;
   /* filter: blur(1px); */
+  /* test */
 }
 
 section div:hover img {
