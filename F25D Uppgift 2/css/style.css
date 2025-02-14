@@ -8,7 +8,6 @@
   --base-color: #0a0a0a;
   --text-color: #cac6c0;
   --text-accent: #ffffff;
-  /* --card-gradient: #1a1a1a; */
   --card-gradient: linear-gradient(to top right, #0a0a0a, #0a0a0a, #0b1318);
   --card-elements: #272624;
   --input-color: #1a1a1a;
@@ -22,19 +21,19 @@
 }
 
 .lightmode {
-  --base-color: linear-gradient(71deg, #686d76, #9ca1ad, #686d76);
+  --base-color: #414141;
   --text-color: #000000;
   --text-accent: #797979;
   --card-gradient: linear-gradient(71deg, #eeeeee, #eeeeee, #eeeeee7b);
-  --card-elements: #dbffe2;
+  --card-elements: #e2f9ff;
   --input-color: #e6e6e6;
   --text-placeholder: #000000;
-  --base-header: linear-gradient(to bottom, #eeeeee, #eeeeee);
+  --base-header: #eeeeee;
   --darker-header-color: #cecece;
   --icon-fill: #000000;
   --text-shadow: rgba(0, 0, 0, 0.234);
   --border-color: #00000057;
-  --btn-color: #dbffe2;
+  --btn-color: #e2f9ff;
 }
 
 html {
@@ -210,7 +209,6 @@ main div {
 
 .ppbox {
   background-color: var(--card-gradient);
-  padding: 5px;
 }
 
 .ppbox img {
@@ -226,8 +224,7 @@ main div {
   padding: 15px;
   line-height: 1.4rem;
   color: var(--text-color);
-  /* background: var(--card-gradient); */
-  background: linear-gradient(to top right, #0a0a0a, #0a0a0a, #0b1318);
+  background: var(--card-gradient);
   overflow: hidden;
 }
 
@@ -339,20 +336,26 @@ section div {
 }
 
 section h2 {
-  border-top: 1px solid var(--border-color);
-  padding-top: 15px;
-  display: flex;
   position: absolute;
+  bottom: 70px;
   align-items: flex-start;
-  padding-left: 20px;
-  left: 0;
-  bottom: 0;
+  text-align: center;
   width: 100%;
   font-weight: 500;
   text-transform: uppercase;
-  background-color: var(--card-elements);
-  height: 8rem;
+  z-index: 2;
+  text-shadow: 0px 0px 4px var(--text-shadow);
+}
+
+.cardWaves {
+  position: absolute;
   z-index: 1;
+  object-fit: cover;
+  height: 50%;
+  width: 400px;
+  left: -130px;
+  bottom: -40px;
+  transition: transform 0.7s ease-in-out;
 }
 
 .card1 {
@@ -362,7 +365,7 @@ section h2 {
   border: 1px solid var(--border-color);
 }
 
-section div img {
+section div .project-img {
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -372,20 +375,25 @@ section div img {
   /* filter: blur(1px); */
 }
 
-section div:hover img {
+section div:hover .project-img {
   transform: scale(1.1);
+}
+
+section div:hover .cardWaves {
+  transform: translateX(120px);
+}
+section div:hover .readmore {
+  transform: translateX(140px);
 }
 
 .readmore {
   position: absolute;
-  left: 20px;
+  left: -120px;
   bottom: 5px;
   display: flex;
   justify-content: center;
   color: var(--text-color);
   text-decoration: none;
-  /* align-items: center;
-  text-align: center; */
   padding: 5px;
   background-color: var(--card-elements);
   width: 40%;
@@ -396,6 +404,7 @@ section div:hover img {
   transition: color 0.4s ease;
   border: 1px solid var(--border-color);
   z-index: 1;
+  transition: transform 0.7s ease-in-out;
 }
 
 #githubiconsmall {
