@@ -60,9 +60,3 @@ navLink.forEach((navLink) => {
     navLink.classList.add("active");
   }
 });
-
-const sendEmail = document.querySelector(".sendbutton");
-const functionMsg = document.getElementById("function-msg");
-sendEmail.addEventListener("click", () => {
-  functionMsg.textContent = "Denna funktion är avaktiverad.";
-});

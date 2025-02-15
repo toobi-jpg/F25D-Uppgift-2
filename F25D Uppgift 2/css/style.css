@@ -1,3 +1,5 @@
+/* Om jag gjorde om sidan från och med idag hade jag skapat och delat upp css i olika filer för olka sidor så att koden inte blir så klumpig. */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,6 +22,7 @@
   --btn-color: #272624;
 }
 
+/* Har inte lagt ned så mycket tid på självaste färgerna för lightmode utan för det mesta funktionen i sig.*/
 .lightmode {
   --base-color: #414141;
   --text-color: #000000;
@@ -208,6 +211,7 @@ main div {
 }
 
 .ppbox {
+  position: relative;
   background-color: var(--card-gradient);
 }
 
@@ -283,6 +287,8 @@ main div {
   color: var(--text-accent);
 }
 
+/* Kanterna på bilden blir dålig kvalité vid nerskalning. Provat image-sharpening men fick det inte att funka. */
+/* Hittade inte heller någon svg som passade bra */
 .bluewavesimg {
   position: absolute;
   left: 0;
@@ -305,10 +311,12 @@ main div {
   color: var(--text-color);
   font-size: 42px;
   z-index: 1;
-  bottom: -60px;
-  left: -590px;
+  bottom: -75px;
+  left: 0px;
+  text-shadow: 0px 0px 4px var(--text-color);
 }
 
+/* Denna sektion hade jag förmodligen gjort i en grid layout om jag gjorde om den */
 section {
   position: relative;
   flex-wrap: wrap;
@@ -335,7 +343,16 @@ section div {
   overflow: hidden;
 }
 
+.section-div-background {
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
 section h2 {
+  color: #cac6c0;
   position: absolute;
   bottom: 70px;
   align-items: flex-start;
@@ -343,13 +360,13 @@ section h2 {
   width: 100%;
   font-weight: 500;
   text-transform: uppercase;
-  z-index: 2;
+  z-index: 3;
   text-shadow: 0px 0px 4px var(--text-shadow);
 }
 
 .cardWaves {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   object-fit: cover;
   height: 50%;
   width: 400px;
@@ -365,25 +382,27 @@ section h2 {
   border: 1px solid var(--border-color);
 }
 
+/* Kommer lägga till fler projekt till uppgift 3, något projekt jag håller på med och kanske lorem. */
 section div .project-img {
   border-radius: 8px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: 1;
   transition: transform 0.8s ease;
-  /* filter: blur(1px); */
 }
 
 section div:hover .project-img {
   transform: scale(1.1);
 }
-
 section div:hover .cardWaves {
   transform: translateX(120px);
 }
 section div:hover .readmore {
   transform: translateX(140px);
+}
+section div:hover .section-div-background {
+  opacity: 100%;
 }
 
 .readmore {
@@ -403,7 +422,7 @@ section div:hover .readmore {
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.341);
   transition: color 0.4s ease;
   border: 1px solid var(--border-color);
-  z-index: 1;
+  z-index: 2;
   transition: transform 0.7s ease-in-out;
 }
 
@@ -472,7 +491,7 @@ footer label {
   }
 
   .projects {
-    left: 5px;
+    bottom: -555px;
   }
 }
 
@@ -487,9 +506,27 @@ footer label {
     height: 400px;
   }
 
+  section div:hover .readmore {
+    transform: none;
+  }
+
+  section h2 {
+    background-color: var(--input-color);
+    height: 30%;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+  }
+
   .readmore {
     min-width: 100px;
     width: 40%;
+    left: 20px;
+  }
+
+  .cardWaves {
+    display: none;
   }
 }
 
@@ -504,38 +541,27 @@ footer label {
 }
 
 .contact-page main {
-  overflow: hidden;
   position: relative;
-  flex-wrap: nowrap;
-  background: var(--base-color);
-  height: 100vh;
-}
-
-.contact-page-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  /* background: var(--card-gradient); */
-  width: 800px;
-  height: 550px;
-  /* overflow: hidden; */
-  border: none;
+  flex-wrap: wrap;
+  background: var(--base-color);
+  min-height: 100vh;
+  overflow: hidden;
+  align-items: flex-start;
+  margin-top: 50px;
 }
 
-.contact-page-container img {
+.contact-page-main img {
   position: absolute;
   z-index: 0;
   width: 800px;
   height: auto;
   object-fit: cover;
-  object-position: center;
-  opacity: 25%;
+  opacity: 23%;
+  margin-top: -100px;
 }
 
 .left-container {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -544,18 +570,24 @@ footer label {
   box-shadow: none;
   z-index: 1;
   border: none;
-  width: 50%;
-  left: 40px;
+  max-width: 300px;
   gap: 20px;
   overflow: hidden;
   color: var(--text-color);
   font-family: "Lato", serif;
+  text-shadow: 0px 0px 2px var(--text-shadow);
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
+}
+
+.left-container.show {
+  opacity: 100%;
 }
 
 .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin-top: 0px;
   height: 25px;
   width: 100px;
@@ -571,7 +603,6 @@ footer label {
 }
 
 .contact-container {
-  position: absolute;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -579,7 +610,7 @@ footer label {
   background-color: transparent;
   box-shadow: none;
   border: none;
-  width: 50%;
+  max-width: 300px;
   right: 40px;
 }
 
@@ -715,6 +746,7 @@ form:has(#emailinput:focus) .envelope {
   margin-bottom: 3px;
 }
 
+/* Väldigt nöjd med denna knapp. Hade sparat denna design i en knapp "variabel" och använt på fler knappar på sidan */
 #cvbtn {
   margin-top: 30px;
   gap: 5px;
@@ -801,9 +833,6 @@ form:has(#emailinput:focus) .envelope {
   color: var(--text-color);
   margin-top: 10px;
   font-weight: 500;
-}
-
-.portfolio main {
 }
 
 .portfolio main div {
